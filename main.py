@@ -2,16 +2,15 @@ import logging
 from User import User
 from Admin import Admin
 from Contact import Contact
-logging.basicConfig(level=logging.DEBUG)
 
+logging.basicConfig(level=logging.DEBUG)
 
 user1 = User("Арслан")
 user2 = User("Адель")
 user3 = User("Ильмир")
-admin = Admin(user1)
+admin = Admin("Арслан")
 
 user1.add_friends(user2)
-
 user1.add_phone_book('Семья')
 user2.add_phone_book('Работа')
 
@@ -28,5 +27,4 @@ user1.share_phone_books(user2, 'Семья')
 user1.share_phone_books(user3, 'Семья')
 
 filtered_contacts_user = user1.phone_books['Семья'].filter_user(user='user1')
-
 filtered_contacts_code = user1.phone_books['Семья'].filter_country_code(country_code='7')
